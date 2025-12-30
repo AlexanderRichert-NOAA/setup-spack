@@ -52,7 +52,7 @@ runs:
 
   - name: Spack configuration
     run: |
-      if [[ ${{ inputs.builtin-repository }} != "spack/spack-packages" || ${{ inputs.builtin-ref }} != "develop" ]]; then
+      if [ ${{ inputs.builtin-repository }} != "spack/spack-packages" ] || [ ${{ inputs.builtin-ref }} != "develop" ]; then
         spack repo add https://github.com/${{ inputs.builtin-repository }}
         spack repo update builtin -b ${{ inputs.builtin-ref }}
       fi
