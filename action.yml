@@ -54,7 +54,7 @@ runs:
     run: |
       if [ ${{ inputs.builtin-repository }} != "spack/spack-packages" ]; then
         spack repo add https://github.com/${{ inputs.builtin-repository }}
-        spack repo update -b builtin ${{ inputs.builtin-ref }}
+        spack repo update builtin -b ${{ inputs.builtin-ref }}
       fi
       if [ ${{ inputs.buildcache }} = "true" ]; then
         spack mirror add --unsigned github-actions-buildcache oci://ghcr.io/spack/github-actions-buildcache
