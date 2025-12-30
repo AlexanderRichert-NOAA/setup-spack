@@ -25,6 +25,14 @@ inputs:
     description: "GitHub repository where Spack or its fork lives"
     required: false
     default: "spack/spack"
+  builtin-repository:
+    description: "GitHub repository where spack-packages or its fork lives"
+    required: false
+    default: "spack/spack-packages"
+  builtin-ref:
+    description: "Version of spack-packages (git ref)"
+    required: false
+    default: develop
 runs:
   using: "composite"
   steps:
@@ -44,6 +52,10 @@ runs:
 
   - name: Spack configuration
     run: |
+      if [ ${{ inputs.builtin-repository }} != "spack/spack-packages" ]; then
+        spack repo add https://github.com/${{ inputs.builtin-repository }}
+        spack repo update -b builtin ${{ inputs.builtin-ref }}
+      fi
       if [ ${{ inputs.buildcache }} = "true" ]; then
         spack mirror add --unsigned github-actions-buildcache oci://ghcr.io/spack/github-actions-buildcache
       fi

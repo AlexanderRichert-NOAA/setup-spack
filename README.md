@@ -5,13 +5,15 @@ speed up your actions.
 
 ## Options
 
-| Name        | Description                          | Default        |
-|-------------|--------------------------------------|----------------|
-| `ref`       | Version of Spack                     | `"develop"`    |
-| `buildcache`| Enable the GitHub Action build cache | `true`         |
-| `color`     | Force color output                   | `true`         |
-| `path`      | Path to install Spack to             | `"spack"`      |
-| `repository`| GitHub repository for Spack          | `"spack/spack"`|
+| Name                 | Description                               | Default                 |
+|----------------------|-------------------------------------------|-------------------------|
+| `ref`                | Version of Spack                          | `"develop"`             |
+| `buildcache`         | Enable the GitHub Action build cache      | `true`                  |
+| `color`              | Force color output                        | `true`                  |
+| `path`               | Path to install Spack to                  | `"spack"`               |
+| `repository`         | GitHub repository for Spack               | `"spack/spack"`         |
+| `builtin-repository` | GitHub repository for spack-packages      | `"spack/spack-packages"`|
+| `builtin-ref`        | Version of spack-packages                 | `"develop"`             |
 
 ## Example: basic setup
 
